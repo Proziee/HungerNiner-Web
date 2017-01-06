@@ -1,0 +1,39 @@
+<DOCTYPE! HTML>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="layout.css">
+<script>
+
+function validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@uncc.edu$/;
+    return re.test(email);
+}
+
+function validate() {
+  var email = document.getElementById("email");
+  if (validateEmail(email)) {
+    alert("Invalid email, please try again");
+  }
+
+}
+
+</script>
+</head>
+<body>
+
+  <div class="login-page">
+    <div class="logo">
+      <img src="http://i68.tinypic.com/2e1uiqp.png" alt="">
+    </div>
+    <div class="form">
+      <form class="login-form">
+        <input id= "email" type="text" placeholder="UNCC email address"/>
+        <input type="password" placeholder="password"/>
+        <button id="login-button" onclick="validate()" >login</button>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>
+</DOCTYPE!>

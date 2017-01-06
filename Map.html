@@ -1,0 +1,66 @@
+<?php?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Google Map</title>
+        <meta name="viewport" content="initial-scale=1.0">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="Map.css" type="text/css" />
+        <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+        <script src="http://www.w3schools.com/lib/w3data.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRT_c274Y-PsHa3hxI2U1KPzp79QMtmWA&callback=initMap"></script>
+        <script type="text/javascript" src="Map.js"></script>
+        <script type="text/javascript" src="Modal.js"></script>
+        <script>$(document).ready(function(){
+                initMap();
+            });
+        </script>
+        <script type="text/javascript">
+        //put this somewhere in "show.html"
+        //using window onload event to run function
+        //so function runs after all content has been loaded.
+        //After refresh this entire script will run again.
+        window.onload = function () {
+            'use strict';
+            var millisecondsBeforeRefresh = 120000; //Adjust time here
+            window.setTimeout(function () {
+                //refresh the entire document
+                document.location.reload();
+            }, millisecondsBeforeRefresh);
+        };
+    </script>
+    </head>
+    <body>
+        <img src="" alt="Free Food Event Logo"></img>
+        <a href="https://hungerniner-proziee.c9users.io/Index.php" id="eventLink">Events</a>
+        <h2 id=CampusEvents>Campus Events</h2>
+        <div id="map"></div>
+        <div id="addModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closingModal()">x</span>
+                <form action="Database.php" method="post" id="addingForm">
+                    <h2 id="buildingHeading"></h2>
+                    Event Name: <br>
+                    <input type="text" name="eventName" id="eventName" value="Coding Class" required/> <br><br>
+                    Room Number: <br>
+                    <input type="text" name="eventRoom" id="eventRoom" value="140" required/><br><br>
+                    Building: <br>
+                    <input type="text" name="buildingInput" id="buildingInput" required/><br><br>
+                    Start Date: <br>
+                    <input type="date" name="startDate" id="startDate" required/><br><br>
+                    End Date: <br>
+                    <input type="date" name="endDate" id="endDate" required/><br><br>
+                    Start Time: <br>
+                    <input type="time" name="startTime" id="startTime" required/><br><br>
+                    End Time: <br>
+                    <input type="time" name="endTime" id="endTime" required/><br><br>
+                    <input type="submit" name="add" id="add" value="Submit"/>
+                    <?php include 'Database.php';?>
+                </form>
+            </div>
+        </div>
+        <footer>Copyright 2016 &copy;</footer>
+    </body>
+</html>
+
